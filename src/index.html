@@ -1,28 +1,56 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8"
-            name="viewport"
-            content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+  <head>
+    <meta charset="utf-8"
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
 
-        <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
-        <script src="https://api4.windy.com/assets/libBoot.js"></script>
-        <style>
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
+    <script src="https://api4.windy.com/assets/libBoot.js"></script>
+    <style>
         #windy {
             width: 100%;
             height: 300px;
         }
     </style>
-        <title>Iframe</title>
-        <base href="/">
+    <title>Iframe</title>
+    <base href="/">
 
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="icon" type="image/x-icon" href="favicon.ico">
-    </head>
-    <body>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+  </head>
+  <body>
 
-        <div id="windy"><h2>test 3</h2></div>
-        <script src="script.js"></script>
-        <app-root></app-root>
-    </body>
+    <div id="windy"><h1>test 5</h1></div>
+    <script>
+    const options = {
+    // Required: API key
+    key: 'MX80JBQCIix1NjcKRqqyjUXvFhJzgKOK', // REPLACE WITH YOUR KEY !!!
+
+    // Put additional console output
+    verbose: true,
+
+    // Optional: Initial state of the map
+    lat: 50.4,
+    lon: 14.3,
+    zoom: 5,
+};
+
+// Initialize Windy API
+windyInit(options, windyAPI => {
+    // windyAPI is ready, and contain 'map', 'store',
+    // 'picker' and other usefull stuff
+
+    const { map } = windyAPI;
+    // .map is instance of Leaflet map
+
+    L.popup()
+        .setLatLng([50.4, 14.3])
+        .setContent('Hello World')
+        .openOn(map);
+});
+    
+    </script>
+    <app-root></app-root>
+  </body>
 </html>
